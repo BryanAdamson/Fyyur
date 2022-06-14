@@ -1,6 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
 
-
 db = SQLAlchemy()
 
 
@@ -21,8 +20,6 @@ class Venue(db.Model):
     genres = db.Column(db.ARRAY(db.String(120)))
     shows = db.relationship('Show', backref='venue', lazy=True)
 
-    # TODO: implement any missing fields, as a database migration using Flask-Migrate
-
 
 class Artiste(db.Model):
     __tablename__ = 'Artiste'
@@ -39,8 +36,6 @@ class Artiste(db.Model):
     seeking_description = db.Column(db.String(120))
     website = db.Column(db.String(120))
     shows = db.relationship('Show', backref='artiste', lazy=True)
-
-    # TODO: implement any missing fields, as a database migration using Flask-Migrate
 
 
 class Show(db.Model):
